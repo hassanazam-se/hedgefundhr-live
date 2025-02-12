@@ -1,29 +1,56 @@
-<!DOCTYPE html>  
-<html data-theme="dark">  
-<head>  
-  <title>HedgeFundHR: Atomic Hiring</title>  
-  <!-- Nuclear CSS -->  
-  <style>  
-    :root {  
-      --blood-red: #ff2424;  
-      --terminal-green: #00ff00;  
-    }  
-    .crisis-score {  
-      background: linear-gradient(45deg, #000, #1a1a1a);  
-      border: 1px solid var(--blood-red);  
-      font-family: 'Courier New', monospace;  
-    }  
-  </style>  
-</head>  
-<body>  
-  <!-- Hero Section -->  
-  <div id="main">  
-    <h1>Candidates From Hell<br><span class="typed-text"></span></h1>  
-    <div id="demo-container">  
-      <input type="text" id="jobDesc" placeholder="'Portfolio Manager'">  
-      <button onclick="simulateCrisisScan()">Simulate AI Search (5s)</button>  
-      <div id="crisisScore" class="crisis-score"></div>  
-    </div>  
-  </div>  
-</body>  
-</html>  
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HedgeFundHR - Atomic Hiring Intelligence</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Matrix Rain Background -->
+    <canvas id="matrix"></canvas>
+
+    <!-- Main Container -->
+    <main class="glass-container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="glitch-container">
+                <h1 class="glitch" data-text="CRISIS-PROOF HIRING">CRISIS-PROOF HIRING</h1>
+                <p class="subtitle">AI-trained on 15 years of market collapses</p>
+            </div>
+            
+            <!-- Live Demo Box -->
+            <div class="demo-box">
+                <input 
+                    type="text" 
+                    id="jobInput" 
+                    placeholder='"Portfolio Manager" "Risk Analyst"'
+                    class="terminal-input"
+                >
+                <button onclick="initiateAtomicScan()" class="cta-pulse">
+                    LAUNCH CANDIDATE SCAN → 
+                </button>
+                <div id="resultsContainer"></div>
+            </div>
+        </section>
+
+        <!-- Crisis Timeline -->
+        <section class="timeline">
+            <div class="timeline-event" data-year="2008">
+                <h3>Lehman Brothers Collapse</h3>
+                <p>Survivors average +47% returns (2009-2012)</p>
+            </div>
+            <div class="timeline-event" data-year="2020">
+                <h3>COVID Market Crash</h3>
+                <p>Top candidates identified March 23 bottom</p>
+            </div>
+            <div class="timeline-event" data-year="2023">
+                <h3>Banking Crisis</h3>
+                <p>SVB/RBC survivors now in demand</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
