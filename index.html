@@ -3,123 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HedgeFundHR - AI Crisis Talent Acquisition</title>
+    <title>HedgeFundHR - Crisis Talent Acquisition</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
         :root {
-            --primary: #0F172A;
-            --accent: #2563EB;
-            --gold: #D4AF37;
+            --wallstreet-navy: #0A1A2F;
+            --gold-accent: #FFD700;
+            --crisis-red: #FF4D4D;
+            --terminal-green: #00FF00;
         }
-        
-        body {
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
             font-family: 'Inter', sans-serif;
-            background: var(--primary);
+        }
+
+        body {
+            background: var(--wallstreet-navy);
             color: white;
+            line-height: 1.6;
         }
-        
+
+        /* Hero Section with Animated Chart */
         .hero {
-            background: linear-gradient(45deg, #000428, #004e92);
-            padding: 8rem 2rem;
-            text-align: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(10,26,47,0.9), rgba(10,26,47,0.9)),
+                        url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3') center/cover;
+            padding: 0 8%;
         }
-        
-        .feature-card {
-            background: rgba(255,255,255,0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: 0.3s;
+
+        .hero-content {
+            max-width: 800px;
         }
-        
-        .feature-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--gold);
-        }
-        
-        .gradient-text {
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
             background: linear-gradient(45deg, #FFD700, #FFAA00);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        
-        .cta-button {
-            background: linear-gradient(45deg, #2563EB, #1D4ED8);
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            transition: 0.3s;
+
+        /* Feature Grid with Hover Effects */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 4rem 8%;
+            background: #08111E;
         }
-        
-        .cta-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(37,99,235,0.3);
+
+        .feature-card {
+            background: rgba(255,255,255,0.05);
+            padding: 2rem;
+            border-radius: 10px;
+            transition: transform 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold-accent);
+            background: linear-gradient(45deg, rgba(10,26,47,0.5), rgba(255,215,0,0.1));
+        }
+
+        /* Interactive Demo Section */
+        .demo-section {
+            display: flex;
+            align-items: center;
+            padding: 4rem 8%;
+            gap: 4rem;
+        }
+
+        .demo-visual {
+            flex: 1;
+            position: relative;
+        }
+
+        .demo-visual img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .demo-form {
+            flex: 1;
+        }
+
+        /* Crisis Timeline Animation */
+        .timeline {
+            padding: 4rem 8%;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background: var(--gold-accent);
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="container mx-auto py-6 px-4">
-        <div class="flex justify-between items-center">
-            <div class="text-2xl font-bold gradient-text">HedgeFundHR</div>
-            <a href="#demo" class="cta-button">Live Demo →</a>
-        </div>
-    </nav>
-
     <!-- Hero Section -->
     <section class="hero">
-        <div class="max-w-4xl mx-auto">
-            <h1 class="text-5xl font-bold mb-6 animate__animated animate__fadeIn">
-                Hire Survivors of<br>
-                <span class="gradient-text">Black Swan Events</span>
-            </h1>
-            <p class="text-xl text-gray-300 mb-8">
-                AI-trained to identify talent who thrived in 2008, 2020, and 2023 crises
+        <div class="hero-content">
+            <h1 class="animate__animated animate__fadeInDown">Hedge Fund Survival<br>Team Builder</h1>
+            <p class="animate__animated animate__fadeIn animate__delay-1s">
+                AI-powered identification of crisis-resilient financial professionals. Backtested through 3 market collapses.
             </p>
-            <div class="demo-box bg-white p-6 rounded-2xl shadow-xl max-w-xl mx-auto">
-                <input 
-                    type="text" 
-                    placeholder="Job Title (e.g., 'Quant Analyst')" 
-                    class="w-full p-4 rounded-lg bg-gray-100 mb-4"
-                >
-                <button class="cta-button w-full">Analyze Crisis Readiness →</button>
+            <div class="demo-trigger animate__animated animate__fadeIn animate__delay-2s">
+                <button class="cta-button">Run Free Team Audit →</button>
+                <div class="client-logos">
+                    <img src="blurred-goldman.png" alt="Goldman Sachs">
+                    <img src="blurred-blackstone.png" alt="Blackstone">
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Social Proof -->
-    <section class="py-16 bg-black">
-        <div class="max-w-6xl mx-auto grid grid-cols-5 gap-8 opacity-50">
-            <img src="goldman-blur.png" class="h-12 mx-auto">
-            <img src="blackstone-blur.png" class="h-12 mx-auto">
-            <img src="p72-blur.png" class="h-12 mx-auto">
-            <img src="citadel-blur.png" class="h-12 mx-auto">
-            <img src="bridgewater-blur.png" class="h-12 mx-auto">
+    <!-- Feature Grid -->
+    <section class="features">
+        <div class="feature-card">
+            <div class="feature-icon">📈</div>
+            <h3>Crisis Simulation Engine</h3>
+            <p>Stress-test candidates against 2008/2020 scenarios</p>
+            <img src="crisis-chart.png" alt="Crisis Simulation">
+        </div>
+        
+        <div class="feature-card">
+            <div class="feature-icon">🛡️</div>
+            <h3>SEC-Compliant Vetting</h3>
+            <p>Automated Form ADV cross-checks</p>
+            <img src="compliance-shield.png" alt="Compliance">
+        </div>
+        
+        <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Real-time Market Alerts</h3>
+            <p>Instant notifications on candidate moves</p>
+            <img src="market-alerts.png" alt="Market Alerts">
         </div>
     </section>
 
-    <!-- Features Grid -->
-    <section class="py-20">
-        <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 px-4">
-            <div class="feature-card p-8 rounded-xl">
-                <div class="text-blue-500 text-4xl mb-4">🤺</div>
-                <h3 class="text-2xl font-bold mb-4">Crisis Fortitude Score</h3>
-                <p class="text-gray-400">ML model analyzing 2,340+ crisis behavior signals</p>
-            </div>
-            
-            <div class="feature-card p-8 rounded-xl">
-                <div class="text-blue-500 text-4xl mb-4">⚖️</div>
-                <h3 class="text-2xl font-bold mb-4">SEC-Compliant Histories</h3>
-                <p class="text-gray-400">Automated conflict checks &amp; compliance audits</p>
-            </div>
-            
-            <div class="feature-card p-8 rounded-xl">
-                <div class="text-blue-500 text-4xl mb-4">🧠</div>
-                <h3 class="text-2xl font-bold mb-4">Competitor Shield</h3>
-                <p class="text-gray-400">Real-time alerts when candidates get competing offers</p>
-            </div>
+    <!-- Interactive Demo -->
+    <section class="demo-section">
+        <div class="demo-visual">
+            <img src="dashboard-preview.jpg" alt="AI Dashboard Preview">
+        </div>
+        <div class="demo-form">
+            <h2>Test Our Crisis Matrix</h2>
+            <input type="text" placeholder="Enter Portfolio Manager Name">
+            <button class="cta-button">Analyze Survival Probability →</button>
         </div>
     </section>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="app.js"></script>
+    <script>
+        // Interactive Animation Logic
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const x = e.clientX - card.getBoundingClientRect().left;
+                const y = e.clientY - card.getBoundingClientRect().top;
+                card.style.transform = `perspective(1000px) rotateX(${y/20}deg) rotateY(${-x/20}deg)`;
+            });
+        });
+    </script>
 </body>
 </html>
