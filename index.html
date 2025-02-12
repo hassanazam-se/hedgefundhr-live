@@ -3,109 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HedgeFundHR - Crisis Talent Intelligence</title>
+    <title>HedgeFundHR | Crisis Talent Intelligence Platform</title>
     <style>
         :root {
-            --wallstreet-navy: #0A1A2F;
-            --gold-accent: #FFD700;
-            --crisis-red: #FF4D4D;
+            --navy: #0A1A2F;
+            --gold: #FFD700;
+            --red: #DC143C;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background: var(--wallstreet-navy);
-            color: white;
             margin: 0;
+            font-family: 'Inter', sans-serif;
+            background: var(--navy);
+            color: white;
         }
 
         .hero {
-            min-height: 100vh;
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             align-items: center;
-            padding: 0 10%;
-            position: relative;
-            overflow: hidden;
+            padding: 4rem;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        /* Base64 Encoded Logos */
-        .blurred-logo {
-            background: #ffffff20;
-            padding: 15px;
+        .feature-card img {
+            width: 100%;
             border-radius: 8px;
-            filter: blur(1px);
-            transition: 0.3s;
+            margin: 1rem 0;
         }
-
-        /* Base64 Encoded Hero Image */
-        .hero-image {
-            width: 50%;
-            height: 500px;
-            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjYwMCIgdmlld0JveD0iMCAwIDYwMCA2MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTAgMEg2MDBWNjAwSDBWMHoiIGZpbGw9IiMyNTYzZWIiLz48cGF0aCBkPSJNMzAwIDI1MGwxNTAgMTUwSDMwMHYtMTUweiIgZmlsbD0iI2ZmZCIvPjwvc3ZnPg==');
-            background-size: cover;
-            border-radius: 20px;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
-        }
-
-        .feature-card {
-            background: linear-gradient(45deg, #1d283d, #0a1a2f);
-            padding: 2rem;
-            border-radius: 15px;
-            transition: 0.3s;
-            border: 1px solid #ffffff10;
-        }
-
     </style>
 </head>
 <body>
     <!-- Hero Section -->
     <section class="hero">
-        <div class="content">
-            <h1>Survival-First Hiring</h1>
-            <div class="logos" id="dynamicLogos"></div>
+        <div>
+            <h1>Crash-Tested Talent Acquisition</h1>
+            <button>Request Free Audit</button>
         </div>
-        <div class="hero-image"></div>
+        <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop" 
+             alt="Financial Chart"
+             style="border-radius:12px">
     </section>
 
-    <!-- JS Image Injection -->
-    <script>
-        // Dynamic Logo Insertion (Base64)
-        const logos = [
-            'PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5NiIgaGVpZ2h0PSI5NiIgdmlld0JveD0iMCAwIDEyOCAxMjgiPjxwYXRoIGZpbGw9IiNGRkQiIGQ9Ik0xMjggMTI4SDBWMGgxMjh6Ii8+PC9zdmc+',
-            'PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5NiIgaGVpZ2h0PSI5NiI+PHBhdGggZmlsbD0iI0ZGRCIgZD0iTTAgMGg5NnY5NkgweiIvPjwvc3ZnPg=='
-        ];
+    <!-- Features -->
+    <section style="padding:4rem; max-width:1200px; margin:0 auto">
+        <div class="feature-card">
+            <h2>Survivor Analytics</h2>
+            <img src="https://via.placeholder.com/600x400.png?text=Crisis+Performance+Dashboard+📉&color=1a365d" 
+                 alt="Analytics Preview">
+        </div>
 
-        const logoContainer = document.getElementById('dynamicLogos');
-        logos.forEach(logo => {
-            const img = document.createElement('img');
-            img.className = 'blurred-logo';
-            img.src = `data:image/svg+xml;base64,${logo}`;
-            logoContainer.appendChild(img);
-        });
+        <div class="feature-card">
+            <h2>Compliance Checks</h2>
+            <img src="https://via.placeholder.com/600x400.png?text=SEC+Regulation+Shield+🛡️&color=2d3748" 
+                 alt="Compliance Interface">
+        </div>
+    </section>
 
-        // Dynamic Feature Cards with Hover
-        const features = [
-            {title: "Black Swan Scanner", icon: "🦢"},
-            {title: "2008 Survivor Database", icon: "💾"},
-            {title: "Competitor Lockout", icon: "🔒"}
-        ];
-
-        features.forEach(feat => {
-            const card = document.createElement('div');
-            card.className = 'feature-card';
-            card.innerHTML = `
-                <h3>${feat.icon} ${feat.title}</h3>
-                <p>AI-powered detection system</p>
-            `;
-            document.body.appendChild(card);
-        });
-
-        // Interactive Animation
-        document.querySelectorAll('.feature-card').forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                card.style.transform = 'translateY(-10px)';
-                card.style.background = 'linear-gradient(45deg, #0a1a2f, #1d283d)';
-            });
-        });
-    </script>
+    <!-- Client Logos -->
+    <div style="display:flex; gap:2rem; justify-content:center; padding:2rem">
+        <img src="https://via.placeholder.com/150x50.png?text=Goldman+Sachs&color=ffffff20" 
+             alt="Client 1">
+        <img src="https://via.placeholder.com/150x50.png?text=Blackstone&color=ffffff20" 
+             alt="Client 2">
+        <img src="https://via.placeholder.com/150x50.png?text=Citadel&color=ffffff20" 
+             alt="Client 3">
+    </div>
 </body>
 </html>
