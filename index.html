@@ -1,56 +1,125 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HedgeFundHR - Atomic Hiring Intelligence</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>HedgeFundHR - AI Crisis Talent Acquisition</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary: #0F172A;
+            --accent: #2563EB;
+            --gold: #D4AF37;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--primary);
+            color: white;
+        }
+        
+        .hero {
+            background: linear-gradient(45deg, #000428, #004e92);
+            padding: 8rem 2rem;
+            text-align: center;
+        }
+        
+        .feature-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(45deg, #FFD700, #FFAA00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .cta-button {
+            background: linear-gradient(45deg, #2563EB, #1D4ED8);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            transition: 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(37,99,235,0.3);
+        }
+    </style>
 </head>
 <body>
-    <!-- Matrix Rain Background -->
-    <canvas id="matrix"></canvas>
+    <!-- Navigation -->
+    <nav class="container mx-auto py-6 px-4">
+        <div class="flex justify-between items-center">
+            <div class="text-2xl font-bold gradient-text">HedgeFundHR</div>
+            <a href="#demo" class="cta-button">Live Demo →</a>
+        </div>
+    </nav>
 
-    <!-- Main Container -->
-    <main class="glass-container">
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="glitch-container">
-                <h1 class="glitch" data-text="CRISIS-PROOF HIRING">CRISIS-PROOF HIRING</h1>
-                <p class="subtitle">AI-trained on 15 years of market collapses</p>
-            </div>
-            
-            <!-- Live Demo Box -->
-            <div class="demo-box">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-5xl font-bold mb-6 animate__animated animate__fadeIn">
+                Hire Survivors of<br>
+                <span class="gradient-text">Black Swan Events</span>
+            </h1>
+            <p class="text-xl text-gray-300 mb-8">
+                AI-trained to identify talent who thrived in 2008, 2020, and 2023 crises
+            </p>
+            <div class="demo-box bg-white p-6 rounded-2xl shadow-xl max-w-xl mx-auto">
                 <input 
                     type="text" 
-                    id="jobInput" 
-                    placeholder='"Portfolio Manager" "Risk Analyst"'
-                    class="terminal-input"
+                    placeholder="Job Title (e.g., 'Quant Analyst')" 
+                    class="w-full p-4 rounded-lg bg-gray-100 mb-4"
                 >
-                <button onclick="initiateAtomicScan()" class="cta-pulse">
-                    LAUNCH CANDIDATE SCAN → 
-                </button>
-                <div id="resultsContainer"></div>
+                <button class="cta-button w-full">Analyze Crisis Readiness →</button>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Crisis Timeline -->
-        <section class="timeline">
-            <div class="timeline-event" data-year="2008">
-                <h3>Lehman Brothers Collapse</h3>
-                <p>Survivors average +47% returns (2009-2012)</p>
-            </div>
-            <div class="timeline-event" data-year="2020">
-                <h3>COVID Market Crash</h3>
-                <p>Top candidates identified March 23 bottom</p>
-            </div>
-            <div class="timeline-event" data-year="2023">
-                <h3>Banking Crisis</h3>
-                <p>SVB/RBC survivors now in demand</p>
-            </div>
-        </section>
-    </main>
+    <!-- Social Proof -->
+    <section class="py-16 bg-black">
+        <div class="max-w-6xl mx-auto grid grid-cols-5 gap-8 opacity-50">
+            <img src="goldman-blur.png" class="h-12 mx-auto">
+            <img src="blackstone-blur.png" class="h-12 mx-auto">
+            <img src="p72-blur.png" class="h-12 mx-auto">
+            <img src="citadel-blur.png" class="h-12 mx-auto">
+            <img src="bridgewater-blur.png" class="h-12 mx-auto">
+        </div>
+    </section>
 
+    <!-- Features Grid -->
+    <section class="py-20">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 px-4">
+            <div class="feature-card p-8 rounded-xl">
+                <div class="text-blue-500 text-4xl mb-4">🤺</div>
+                <h3 class="text-2xl font-bold mb-4">Crisis Fortitude Score</h3>
+                <p class="text-gray-400">ML model analyzing 2,340+ crisis behavior signals</p>
+            </div>
+            
+            <div class="feature-card p-8 rounded-xl">
+                <div class="text-blue-500 text-4xl mb-4">⚖️</div>
+                <h3 class="text-2xl font-bold mb-4">SEC-Compliant Histories</h3>
+                <p class="text-gray-400">Automated conflict checks &amp; compliance audits</p>
+            </div>
+            
+            <div class="feature-card p-8 rounded-xl">
+                <div class="text-blue-500 text-4xl mb-4">🧠</div>
+                <h3 class="text-2xl font-bold mb-4">Competitor Shield</h3>
+                <p class="text-gray-400">Real-time alerts when candidates get competing offers</p>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
