@@ -1,0 +1,29 @@
+<!DOCTYPE html>  
+<html data-theme="dark">  
+<head>  
+  <title>HedgeFundHR: Atomic Hiring</title>  
+  <!-- Nuclear CSS -->  
+  <style>  
+    :root {  
+      --blood-red: #ff2424;  
+      --terminal-green: #00ff00;  
+    }  
+    .crisis-score {  
+      background: linear-gradient(45deg, #000, #1a1a1a);  
+      border: 1px solid var(--blood-red);  
+      font-family: 'Courier New', monospace;  
+    }  
+  </style>  
+</head>  
+<body>  
+  <!-- Hero Section -->  
+  <div id="main">  
+    <h1>Candidates From Hell<br><span class="typed-text"></span></h1>  
+    <div id="demo-container">  
+      <input type="text" id="jobDesc" placeholder="'Portfolio Manager'">  
+      <button onclick="simulateCrisisScan()">Simulate AI Search (5s)</button>  
+      <div id="crisisScore" class="crisis-score"></div>  
+    </div>  
+  </div>  
+</body>  
+</html>  

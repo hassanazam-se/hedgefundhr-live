@@ -1,0 +1,14 @@
+/* Terminal Glitch Effect */  
+@keyframes glitch {  
+  0% { text-shadow: 2px 2px var(--blood-red); }  
+  100% { text-shadow: -2px -2px var(--terminal-green); }  
+}  
+.typed-text { animation: glitch 0.3s infinite; }  
+
+/* Data Matrix Rain (Canvas) */  
+#matrix {  
+  position: fixed;  
+  top: 0;  
+  opacity: 0.1;  
+  z-index: -1;  
+}  
