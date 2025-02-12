@@ -3,174 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HedgeFundHR - Crisis Talent Acquisition</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <title>HedgeFundHR - Crisis Talent Intelligence</title>
     <style>
         :root {
             --wallstreet-navy: #0A1A2F;
             --gold-accent: #FFD700;
             --crisis-red: #FF4D4D;
-            --terminal-green: #00FF00;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
         }
 
         body {
+            font-family: 'Inter', sans-serif;
             background: var(--wallstreet-navy);
             color: white;
-            line-height: 1.6;
+            margin: 0;
         }
 
-        /* Hero Section with Animated Chart */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
-            background: linear-gradient(rgba(10,26,47,0.9), rgba(10,26,47,0.9)),
-                        url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3') center/cover;
-            padding: 0 8%;
+            padding: 0 10%;
+            position: relative;
+            overflow: hidden;
         }
 
-        .hero-content {
-            max-width: 800px;
+        /* Base64 Encoded Logos */
+        .blurred-logo {
+            background: #ffffff20;
+            padding: 15px;
+            border-radius: 8px;
+            filter: blur(1px);
+            transition: 0.3s;
         }
 
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(45deg, #FFD700, #FFAA00);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* Feature Grid with Hover Effects */
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            padding: 4rem 8%;
-            background: #08111E;
+        /* Base64 Encoded Hero Image */
+        .hero-image {
+            width: 50%;
+            height: 500px;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjYwMCIgdmlld0JveD0iMCAwIDYwMCA2MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTAgMEg2MDBWNjAwSDBWMHoiIGZpbGw9IiMyNTYzZWIiLz48cGF0aCBkPSJNMzAwIDI1MGwxNTAgMTUwSDMwMHYtMTUweiIgZmlsbD0iI2ZmZCIvPjwvc3ZnPg==');
+            background-size: cover;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
         }
 
         .feature-card {
-            background: rgba(255,255,255,0.05);
+            background: linear-gradient(45deg, #1d283d, #0a1a2f);
             padding: 2rem;
-            border-radius: 10px;
-            transition: transform 0.3s;
-            border: 1px solid transparent;
+            border-radius: 15px;
+            transition: 0.3s;
+            border: 1px solid #ffffff10;
         }
 
-        .feature-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--gold-accent);
-            background: linear-gradient(45deg, rgba(10,26,47,0.5), rgba(255,215,0,0.1));
-        }
-
-        /* Interactive Demo Section */
-        .demo-section {
-            display: flex;
-            align-items: center;
-            padding: 4rem 8%;
-            gap: 4rem;
-        }
-
-        .demo-visual {
-            flex: 1;
-            position: relative;
-        }
-
-        .demo-visual img {
-            width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-        }
-
-        .demo-form {
-            flex: 1;
-        }
-
-        /* Crisis Timeline Animation */
-        .timeline {
-            padding: 4rem 8%;
-            position: relative;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            width: 2px;
-            height: 100%;
-            background: var(--gold-accent);
-        }
     </style>
 </head>
 <body>
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-content">
-            <h1 class="animate__animated animate__fadeInDown">Hedge Fund Survival<br>Team Builder</h1>
-            <p class="animate__animated animate__fadeIn animate__delay-1s">
-                AI-powered identification of crisis-resilient financial professionals. Backtested through 3 market collapses.
-            </p>
-            <div class="demo-trigger animate__animated animate__fadeIn animate__delay-2s">
-                <button class="cta-button">Run Free Team Audit →</button>
-                <div class="client-logos">
-                    <img src="blurred-goldman.png" alt="Goldman Sachs">
-                    <img src="blurred-blackstone.png" alt="Blackstone">
-                </div>
-            </div>
+        <div class="content">
+            <h1>Survival-First Hiring</h1>
+            <div class="logos" id="dynamicLogos"></div>
         </div>
+        <div class="hero-image"></div>
     </section>
 
-    <!-- Feature Grid -->
-    <section class="features">
-        <div class="feature-card">
-            <div class="feature-icon">📈</div>
-            <h3>Crisis Simulation Engine</h3>
-            <p>Stress-test candidates against 2008/2020 scenarios</p>
-            <img src="crisis-chart.png" alt="Crisis Simulation">
-        </div>
-        
-        <div class="feature-card">
-            <div class="feature-icon">🛡️</div>
-            <h3>SEC-Compliant Vetting</h3>
-            <p>Automated Form ADV cross-checks</p>
-            <img src="compliance-shield.png" alt="Compliance">
-        </div>
-        
-        <div class="feature-card">
-            <div class="feature-icon">⚡</div>
-            <h3>Real-time Market Alerts</h3>
-            <p>Instant notifications on candidate moves</p>
-            <img src="market-alerts.png" alt="Market Alerts">
-        </div>
-    </section>
-
-    <!-- Interactive Demo -->
-    <section class="demo-section">
-        <div class="demo-visual">
-            <img src="dashboard-preview.jpg" alt="AI Dashboard Preview">
-        </div>
-        <div class="demo-form">
-            <h2>Test Our Crisis Matrix</h2>
-            <input type="text" placeholder="Enter Portfolio Manager Name">
-            <button class="cta-button">Analyze Survival Probability →</button>
-        </div>
-    </section>
-
+    <!-- JS Image Injection -->
     <script>
-        // Interactive Animation Logic
+        // Dynamic Logo Insertion (Base64)
+        const logos = [
+            'PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5NiIgaGVpZ2h0PSI5NiIgdmlld0JveD0iMCAwIDEyOCAxMjgiPjxwYXRoIGZpbGw9IiNGRkQiIGQ9Ik0xMjggMTI4SDBWMGgxMjh6Ii8+PC9zdmc+',
+            'PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5NiIgaGVpZ2h0PSI5NiI+PHBhdGggZmlsbD0iI0ZGRCIgZD0iTTAgMGg5NnY5NkgweiIvPjwvc3ZnPg=='
+        ];
+
+        const logoContainer = document.getElementById('dynamicLogos');
+        logos.forEach(logo => {
+            const img = document.createElement('img');
+            img.className = 'blurred-logo';
+            img.src = `data:image/svg+xml;base64,${logo}`;
+            logoContainer.appendChild(img);
+        });
+
+        // Dynamic Feature Cards with Hover
+        const features = [
+            {title: "Black Swan Scanner", icon: "🦢"},
+            {title: "2008 Survivor Database", icon: "💾"},
+            {title: "Competitor Lockout", icon: "🔒"}
+        ];
+
+        features.forEach(feat => {
+            const card = document.createElement('div');
+            card.className = 'feature-card';
+            card.innerHTML = `
+                <h3>${feat.icon} ${feat.title}</h3>
+                <p>AI-powered detection system</p>
+            `;
+            document.body.appendChild(card);
+        });
+
+        // Interactive Animation
         document.querySelectorAll('.feature-card').forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const x = e.clientX - card.getBoundingClientRect().left;
-                const y = e.clientY - card.getBoundingClientRect().top;
-                card.style.transform = `perspective(1000px) rotateX(${y/20}deg) rotateY(${-x/20}deg)`;
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px)';
+                card.style.background = 'linear-gradient(45deg, #0a1a2f, #1d283d)';
             });
         });
     </script>
