@@ -1,14 +1,106 @@
-/* Terminal Glitch Effect */  
-@keyframes glitch {  
-  0% { text-shadow: 2px 2px var(--blood-red); }  
-  100% { text-shadow: -2px -2px var(--terminal-green); }  
-}  
-.typed-text { animation: glitch 0.3s infinite; }  
+:root {
+    --terminal-green: #00ff00;
+    --blood-red: #ff2424;
+    --dark-bg: #0a0a0a;
+}
 
-/* Data Matrix Rain (Canvas) */  
-#matrix {  
-  position: fixed;  
-  top: 0;  
-  opacity: 0.1;  
-  z-index: -1;  
-}  
+body {
+    margin: 0;
+    background: var(--dark-bg);
+    color: var(--terminal-green);
+    font-family: 'Courier New', monospace;
+    overflow-x: hidden;
+}
+
+.glass-container {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.glitch-container {
+    position: relative;
+    margin: 4rem 0;
+}
+
+.glitch {
+    font-size: 4rem;
+    position: relative;
+    animation: glitch 5s infinite;
+}
+
+.glitch::before {
+    content: attr(data-text);
+    position: absolute;
+    left: -2px;
+    text-shadow: 2px 0 #ff00c1;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.demo-box {
+    border: 1px solid var(--blood-red);
+    padding: 2rem;
+    margin: 2rem 0;
+    position: relative;
+}
+
+.terminal-input {
+    background: black;
+    border: 1px solid var(--terminal-green);
+    color: inherit;
+    padding: 1rem;
+    width: 100%;
+    margin: 1rem 0;
+}
+
+.cta-pulse {
+    background: var(--blood-red);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    animation: pulse 2s infinite;
+}
+
+.timeline {
+    display: grid;
+    gap: 2rem;
+    margin: 4rem 0;
+}
+
+.timeline-event {
+    border-left: 3px solid var(--terminal-green);
+    padding: 1rem;
+    position: relative;
+}
+
+.timeline-event::before {
+    content: attr(data-year);
+    position: absolute;
+    left: -2.5rem;
+    top: 0;
+    color: var(--blood-red);
+}
+
+@keyframes glitch {
+    0% { text-shadow: 2px 2px var(--blood-red); }
+    25% { transform: translate(-2px, 2px); }
+    50% { transform: translate(2px, -2px); }
+    75% { transform: translate(-2px, 2px); }
+    100% { transform: translate(0); }
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+#matrix {
+    position: fixed;
+    top: 0;
+    z-index: -1;
+    opacity: 0.1;
+}
